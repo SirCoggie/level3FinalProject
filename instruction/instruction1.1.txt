@@ -1,0 +1,25 @@
+Created the backend folder structure next to my React TypeScript project.
+
+
+
+Created a Python virtual environment using python -m venv venv --without-pip.
+
+
+
+Configured PowerShell execution policies (Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process) and activated the environment using .\venv\Scripts\Activate.ps1.
+
+
+
+Bootstrapped pip inside the active environment (python -m ensurepip).
+
+
+
+Installed fastapi and uvicorn inside the (venv) environment using pip install.
+
+
+
+What I Need To Do Next:
+
+
+
+Create backend/main.py, instantiate the FastAPI app, define data schemas with Pydantic, configure CORSMiddleware (for localhost:5173 / localhost:3000), and create a basic GET health route and a POST route.

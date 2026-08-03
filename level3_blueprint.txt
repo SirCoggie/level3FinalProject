@@ -1,0 +1,437 @@
+# AI Project Context & Development Blueprint
+
+## Project Overview
+
+I am building my first serious AI application as a learning project. The primary objective is not to create the most feature-rich product, but to deeply understand how modern AI applications are architected so that I can build larger and more sophisticated AI systems in the future.
+
+This project serves as the foundation for future AI projects, particularly larger-scale AI assistants and orchestration systems. My long-term goal is to eventually build an advanced AI project called SoulEcho, but this current project should prioritize strong architectural understanding over complexity.
+
+I would like all guidance to emphasize understanding, scalability, maintainability, and professional software engineering practices rather than simply producing working code.
+
+---
+
+# Project Goal
+
+The application is an AI-powered search assistant.
+
+Users should be able to:
+
+* Type a question into a search bar.
+* Send that question to a backend API.
+* The backend retrieves relevant context from a predefined knowledge source.
+* The backend constructs an AI prompt.
+* The AI generates an answer using only the provided context.
+* The frontend displays the AI's response.
+
+The project should mimic how internal company AI assistants or customer support assistants work.
+
+The AI should not simply behave like ChatGPT. Instead, it should answer questions using company-specific information that I provide.
+
+---
+
+# Primary Learning Objectives
+
+My priority is learning rather than completing features as quickly as possible.
+
+I want to understand:
+
+* why every component exists
+* how components communicate
+* data flow
+* architectural decisions
+* scalability
+* best practices
+
+I do not want code without explanation.
+
+Whenever possible, explain:
+
+* why something is written this way
+* alternative approaches
+* tradeoffs
+* what would be done differently in production
+
+---
+
+# Timeframe
+
+Available development time:
+
+6–8 weeks
+
+Priority:
+
+Understanding > Feature Count
+
+I am willing to sacrifice extra features if doing so gives me a stronger understanding of AI engineering.
+
+---
+
+# Current Knowledge
+
+I already have practical experience with:
+
+Frontend
+
+* HTML
+* CSS
+* JavaScript
+* DOM manipulation
+* Responsive design
+* React
+* TypeScript (basic)
+* Fetch API
+* Axios
+
+Backend
+
+* Python
+* FastAPI
+* Basic Node.js
+* Express
+* REST APIs
+* JSON
+* Environment variables
+* API integration
+
+Database
+
+* Basic SQL concepts
+* NoSQL concepts (basic understanding)
+
+Deployment
+
+* GitHub
+* Git
+* Render deployment
+* Local development
+* npm
+* package.json
+
+Programming
+
+* Variables
+* Functions
+* Async/Await
+* Promises
+* Event handling
+* Objects
+* Arrays
+* Array methods
+* LocalStorage
+* API consumption
+
+---
+
+# Knowledge I Want To Learn
+
+The primary focus should be AI engineering.
+
+Highest Priority
+
+* LangChain
+* Prompt Engineering
+* Prompt Templates
+* Chains
+* Message History
+* AI Architecture
+* Context Injection
+* Intent Routing
+* Output Parsing
+* AI Backend Design
+
+Medium Priority
+
+* Supabase
+* User Preferences
+* Persistent Memory
+* Database Design
+* Authentication (basic)
+
+Lower Priority
+
+* RAG
+* Embeddings
+* Vector Databases
+* Semantic Search
+
+Future Topics
+
+* LangGraph
+* CrewAI
+* AI Orchestration
+* Multi-Agent Systems
+* MCP
+* Autonomous AI Systems
+
+These future topics should only be introduced conceptually unless they directly support the current project.
+
+---
+
+# Current Project Scope
+
+The application should remain intentionally simple.
+
+React Frontend
+
+* Search bar
+* Submit button
+* Loading state
+* AI response display
+* Simple modern interface
+
+FastAPI Backend
+
+* API endpoint
+* Request validation
+* Prompt construction
+* LangChain integration
+* AI response
+* Error handling
+
+Knowledge Source
+
+Initially this may simply be:
+
+* text file
+* markdown file
+* python string
+* JSON file
+
+No database is required initially.
+
+The AI should answer only using this knowledge.
+
+---
+
+# Future Expansion
+
+The architecture should be designed so future features can be added without rewriting the project.
+
+Future additions include:
+
+Phase 2
+
+* Conversation memory
+* User preferences
+* Supabase
+* Authentication
+
+Phase 3
+
+* RAG
+* Document retrieval
+* Embeddings
+* Vector search
+
+Phase 4
+
+* Multiple AI agents
+* Specialized agents
+* Agent routing
+* Orchestration
+* Workflow automation
+
+---
+
+# Desired Architecture
+
+The project should eventually resemble the following architecture.
+
+User
+
+↓
+
+React Frontend
+
+↓
+
+FastAPI Backend
+
+↓
+
+Intent Detection
+
+↓
+
+Prompt Construction
+
+↓
+
+Knowledge Retrieval
+
+↓
+
+LangChain
+
+↓
+
+LLM
+
+↓
+
+Response Parser
+
+↓
+
+React Frontend
+
+Later this architecture should evolve into
+
+User
+
+↓
+
+React
+
+↓
+
+FastAPI
+
+↓
+
+Authentication
+
+↓
+
+Memory
+
+↓
+
+Knowledge Retrieval
+
+↓
+
+Prompt Builder
+
+↓
+
+LangChain
+
+↓
+
+Tools
+
+↓
+
+LLM
+
+↓
+
+Response
+
+↓
+
+Frontend
+
+---
+
+# Prompt Engineering Philosophy
+
+The AI should not simply receive the user's message.
+
+The backend should be responsible for constructing the final prompt.
+
+Example workflow
+
+User Question
+
+↓
+
+Intent Detection
+
+↓
+
+Relevant Context
+
+↓
+
+System Prompt
+
+↓
+
+Conversation History (future)
+
+↓
+
+Final Prompt
+
+↓
+
+LLM
+
+This teaches prompt orchestration instead of simple prompting.
+
+---
+
+# Coding Style Preferences
+
+Please explain code thoroughly.
+
+Whenever code is generated:
+
+* explain every function
+* explain every variable
+* explain data flow
+* explain why a function exists
+* explain why a file exists
+* explain how files communicate
+
+Avoid writing large amounts of unexplained code.
+
+Prefer building features incrementally.
+
+---
+
+# Teaching Preferences
+
+Please act as a senior software engineer and AI mentor.
+
+When helping me:
+
+* prioritize understanding over speed
+* encourage professional architecture
+* avoid unnecessary abstractions
+* explain terminology
+* point out industry best practices
+* warn me when I am making something unnecessarily complex
+
+If multiple approaches exist, compare them and explain why one may be more suitable for a beginner.
+
+---
+
+# Long-Term Vision
+
+This project is not intended to be my final AI system.
+
+Instead, it is my foundation for eventually building sophisticated AI applications.
+
+My long-term interests include:
+
+* Personalized AI assistants
+* AI customer service systems
+* AI orchestration
+* Agent collaboration
+* AI memory
+* Knowledge retrieval
+* Scalable backend architecture
+* Enterprise AI applications
+
+Every design decision should consider future scalability while keeping the current implementation simple enough for a beginner to understand.
+
+---
+
+# Success Criteria
+
+I will consider this project successful if I can confidently explain:
+
+* how React communicates with FastAPI
+* how FastAPI communicates with LangChain
+* how LangChain communicates with an LLM
+* how prompts are constructed
+* how context is injected
+* how AI responses are generated
+* how future memory and RAG can be added
+* why the application is architected the way it is
+
+The objective is not merely to have a working chatbot, but to understand how modern AI applications are engineered so I can confidently build larger systems in the future.
