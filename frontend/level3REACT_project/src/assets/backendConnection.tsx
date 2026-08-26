@@ -1,5 +1,7 @@
 import { useState } from "react";
- 
+import axios from 'axios'; 
+
+
  interface PromptRequest {
     prompt: string;
 }
@@ -25,26 +27,27 @@ import { useState } from "react";
 
 
         try {
-          const payloadText = input;
+
           const requestData: PromptRequest = {
-            prompt: payloadText
+            prompt: input
           };
 
+          const response = axios.post("http://localhost:8000/api/prompt",requestData)
 
-          const response = await fetch("http://localhost:8000/api/prompt", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(requestData)
-          });
+          // const response = await fetch("http://localhost:8000/api/prompt", {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify(requestData)
+          // });
 
-          if (!response.ok) {
+          if (!response) {
             throw new Error(`Server returned ${response.status}`);
           }
 
-          const data: PromptResponse = await response.json();
-          setResponse(data.response || JSON.stringify(data));
+          const data: PromptResponse = response.data;
+          setResponse(data.response);
 
         } catch (error) {
 
