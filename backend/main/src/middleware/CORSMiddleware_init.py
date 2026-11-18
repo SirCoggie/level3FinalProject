@@ -2,8 +2,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 def middleware(app):
     origins = [
-        "http://localhost:5173",
-        "http://localhost:3000"
+        "https://level3-final-project-1a83g4o44-seong-jin-s-projects.vercel.app/",
+        "https://level3finalproject.onrender.com/"
     ]
 
     app.add_middleware(

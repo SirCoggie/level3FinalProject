@@ -1,5 +1,5 @@
 import { api, errorHandler } from "../../authentification/api";
-import { useEffect, useState, type FormEvent } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import CharacterCard from "./CharacterCard";
 import { memberName } from "./types";
@@ -35,7 +35,7 @@ export default function CharacterPanel({ campaignId, isGM, myUserId }: Props) {
     loadCharacters();
   }, [campaignId]);
 
-  async function handleCreate(e: FormEvent<HTMLFormElement>) {
+  async function handleCreate(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (ownerId === "") {
       toast.error("Please select the player first!");
@@ -81,7 +81,11 @@ export default function CharacterPanel({ campaignId, isGM, myUserId }: Props) {
     <section className={ui.panel}>
       <div className={ui.panelTitle}>
         <h2 className={ui.h2}>Characters</h2>
-        <button type="button" className={ui.button("ghost", "sm")} onClick={loadCharacters}>
+        <button
+          type="button"
+          className={ui.button("ghost", "sm")}
+          onClick={loadCharacters}
+        >
           Refresh
         </button>
       </div>

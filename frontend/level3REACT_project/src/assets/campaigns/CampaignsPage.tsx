@@ -1,6 +1,6 @@
 import { api, errorHandler } from "../authentification/api";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../authentification/AuthContext";
 import * as ui from "../../ui";
@@ -36,7 +36,7 @@ export function CampaignListPage() {
     fetchData();
   }, []);
 
-  async function onCreate(e: FormEvent<HTMLFormElement>) {
+  async function onCreate(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     setMessage("");
 
@@ -62,7 +62,11 @@ export function CampaignListPage() {
     <div className={ui.page}>
       <header className={ui.pageHeader}>
         <h1 className={ui.h1}>Your Campaigns</h1>
-        <button type="button" className={ui.button("ghost", "sm")} onClick={handleSignOut}>
+        <button
+          type="button"
+          className={ui.button("ghost", "sm")}
+          onClick={handleSignOut}
+        >
           Sign out
         </button>
       </header>
@@ -83,7 +87,10 @@ export function CampaignListPage() {
               {campaignList.map((campaign) => (
                 <li key={campaign.id} className={ui.listItem}>
                   <div>
-                    <Link to={`/campaigns/${campaign.id}`} className={`${ui.link} ${ui.name}`}>
+                    <Link
+                      to={`/campaigns/${campaign.id}`}
+                      className={`${ui.link} ${ui.name}`}
+                    >
                       {campaign.name}
                     </Link>
                     {campaign.description && (

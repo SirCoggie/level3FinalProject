@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "../api";
 
 export interface AuthCredentials {
   email: string;
@@ -12,8 +12,8 @@ export interface RegisterResponse {
 }
 
 export const registerUser = async (credentials: AuthCredentials) => {
-  const response = await axios.post<RegisterResponse>(
-    "http://localhost:8000/api/register",
+  const response = await api.post<RegisterResponse>(
+    `/api/register`,
     credentials,
   );
   return response.data;

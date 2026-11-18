@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { api, errorHandler } from "../authentification/api";
 import * as ui from "../../ui";
@@ -13,7 +13,7 @@ export default function BackendConnection() {
   const [response, setResponse] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim()) return;
 
@@ -51,7 +51,11 @@ export default function BackendConnection() {
           onChange={(e) => setInput(e.target.value)}
           disabled={loading}
         />
-        <button type="submit" className={ui.button("primary")} disabled={loading}>
+        <button
+          type="submit"
+          className={ui.button("primary")}
+          disabled={loading}
+        >
           {loading ? "Consulting…" : "Ask"}
         </button>
       </form>

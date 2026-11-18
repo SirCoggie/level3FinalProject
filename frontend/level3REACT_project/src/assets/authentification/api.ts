@@ -1,15 +1,14 @@
 import axios from "axios";
 import { supabase } from "../supabaseClient";
 
-import { toast } from "react-toastify";
-
 export function errorHandler(error: any) {
   let errorMsg = `Error: ${error.response?.data?.detail || error.message}`;
   return errorMsg;
 }
 
 export const api = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL:
+    "https://level3-final-project-1a83g4o44-seong-jin-s-projects.vercel.app",
 });
 
 api.interceptors.request.use(

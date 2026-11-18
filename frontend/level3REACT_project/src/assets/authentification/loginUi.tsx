@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import React, { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { errorHandler } from "./api";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { error } = await signIn(email, password);
     if (error) {

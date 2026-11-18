@@ -1,5 +1,5 @@
 import { api, errorHandler } from "../../authentification/api";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import * as ui from "../../../ui";
 
@@ -18,7 +18,10 @@ type InviteData = {
 export default function InvitePanel({ isGM, campaignId }: Props) {
   const [inviteList, setInviteList] = useState<InviteData[]>([]);
   const [inviteName, setInviteName] = useState("");
-  const [latestLink, setLatestLink] = useState<{ name: string; link: string } | null>(null);
+  const [latestLink, setLatestLink] = useState<{
+    name: string;
+    link: string;
+  } | null>(null);
 
   async function listInvite() {
     try {
@@ -33,7 +36,7 @@ export default function InvitePanel({ isGM, campaignId }: Props) {
     if (isGM) listInvite();
   }, [isGM, campaignId]);
 
-  async function createInvite(e: FormEvent<HTMLFormElement>) {
+  async function createInvite(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       const response = await api.post(`/campaigns/${campaignId}/invites`, {
@@ -62,7 +65,9 @@ export default function InvitePanel({ isGM, campaignId }: Props) {
   async function deleteInvite(invite: InviteData) {
     if (!window.confirm(`Delete the invite for ${invite.name}?`)) return;
     try {
-      const response = await api.delete(`/campaigns/${campaignId}/invites/${invite.id}`);
+      const response = await api.delete(
+        `/campaigns/${campaignId}/invites/${invite.id}`,
+      );
       toast.success(response.data.messages);
       listInvite();
     } catch (error) {

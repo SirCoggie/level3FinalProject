@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 import { registerUser } from "./register";
 import type { AuthCredentials } from "./register";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ export default function Register() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const credentials: AuthCredentials = { email, password, signup_code };
