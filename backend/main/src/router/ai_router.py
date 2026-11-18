@@ -29,7 +29,7 @@ SYSTEM_INSTRUCTION = "You are a helpful, concise assistant."
 def process_prompt(request: PromptRequest,current_user = Depends(require_real_gm_account)):
     try:
         completion = ai_client.chat.completions.create(
-            model="DeepSeek-V4.1-Flash-1017",
+            model="deepseek-flash",
             messages=[
                 {
                     "role": "system",
