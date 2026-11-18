@@ -7,8 +7,7 @@ export function errorHandler(error: any) {
 }
 
 export const api = axios.create({
-  baseURL:
-    "https://level3-final-project-1a83g4o44-seong-jin-s-projects.vercel.app",
+  baseURL: "https://level3finalproject.onrender.com/",
 });
 
 api.interceptors.request.use(
