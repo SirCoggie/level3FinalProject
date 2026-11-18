@@ -10,7 +10,7 @@ router = APIRouter()
 
 
 def frontend_url() -> str:
-    return os.getenv("FRONTEND_URL", "https://level3-final-project-1a83g4o44-seong-jin-s-projects.vercel.app/")
+    return os.getenv("FRONTEND_URL", "https://dnd-final-project.vercel.app/")
 
 
 def seat_email(invite_id: str) -> str:

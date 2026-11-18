@@ -2,7 +2,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 def middleware(app):
     origins = [
-        "https://level3-final-project-1a83g4o44-seong-jin-s-projects.vercel.app/",
+        "https://dnd-final-project.vercel.app/",
         "https://level3finalproject.onrender.com/"
     ]
 
