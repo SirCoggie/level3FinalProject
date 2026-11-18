@@ -1,4 +1,3 @@
-import os
 import secrets
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
@@ -10,7 +9,7 @@ router = APIRouter()
 
 
 def frontend_url() -> str:
-    return os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+    return "https://dnd-final-project.vercel.app"
 
 
 def seat_email(invite_id: str) -> str:

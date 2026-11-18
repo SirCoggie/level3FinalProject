@@ -7,10 +7,7 @@ export function errorHandler(error: any) {
 }
 
 export const api = axios.create({
-  baseURL: (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(
-    /\/+$/,
-    "",
-  ),
+  baseURL: "https://level3finalproject.onrender.com",
 });
 
 api.interceptors.request.use(

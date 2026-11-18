@@ -1,10 +1,8 @@
-import os
 from fastapi.middleware.cors import CORSMiddleware
 
 
 def middleware(app):
-    raw_origins = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000")
-    origins = [o.strip().rstrip("/") for o in raw_origins.split(",") if o.strip()]
+    origins = ["https://dnd-final-project.vercel.app"]
 
     app.add_middleware(
         CORSMiddleware,
