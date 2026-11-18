@@ -4,8 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "*"
-uvicorn = "*"
+fastapi = "==0.141.1"
+uvicorn = "==0.52.1"
+supabase = "==2.31.0"
+python-dotenv = "==1.2.2"
+openai = "==2.54.0"
+email-validator = "==2.3.0"
+pydantic = "==2.13.4"
 
 [dev-packages]
 

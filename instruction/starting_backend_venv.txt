@@ -1,6 +1,0 @@
-.\.venv\Scripts\Activate.ps1
-activate this first before running programme + ensure you install dependency after you activate this dependency
-python -m pipenv run uvicorn main:app --reload
-starting virtual environemnt for backend
-
-uz-9@uc9aQXfu+U

@@ -1,26 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Register from './Register.tsx'
-import NotFoundPage from './assets/NotFoundPage.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
+import { router } from "./assets/router/router";
+import { AuthProvider } from "./assets/authentification/AuthContext";
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App/>,
-    errorElement: <NotFoundPage />,
-  },
-  {
-    path: '/register',
-    element: <Register />
-  },
-])
-
-
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <ToastContainer theme="dark" position="top-right" autoClose={2500} />
+    </AuthProvider>
   </StrictMode>,
-)
+);
