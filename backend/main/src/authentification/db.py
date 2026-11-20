@@ -1,6 +1,7 @@
 import os
+import httpx
 from dotenv import load_dotenv
-from supabase import create_client, Client
+from supabase import create_client, Client, ClientOptions
 
 load_dotenv()
 
@@ -11,5 +12,5 @@ publishable_key = os.getenv("SUPABASE_PUBLIC_KEY")
 if not url or not secret_key or not publishable_key:
     raise RuntimeError("Missing SUPABASE_API_URL, SUPABASE_SECRET_KEY or SUPABASE_PUBLIC_KEY in .env")
 
-supabase: Client = create_client(url, secret_key)
-auth_client: Client = create_client(url, publishable_key)
+supabase: Client = create_client(url, secret_key, options=ClientOptions(httpx_client=httpx.Client(timeout=120)))
+auth_client: Client = create_client(url, publishable_key, options=ClientOptions(httpx_client=httpx.Client(timeout=120)))
